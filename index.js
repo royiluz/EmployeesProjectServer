@@ -8,8 +8,8 @@ const cors = require('cors')
 const port = 3020;
 
 app.use(cors());
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // get all users 
 app.get("/", async (req, res) => {
@@ -72,6 +72,7 @@ app.post("/:email", async (req, res) => {
     return res.status(201).json(user)
 });
 
+// Prints a log once the server starts listening
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
